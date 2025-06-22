@@ -1,9 +1,3 @@
-"""
-Student Grade Manager
-A simple program to manage and analyze student grades
-"""
-
-# Sample student data - dictionary containing lists
 students = {
     "Ali": [85, 92, 78],
     "Dana": [72, 89, 94],
@@ -12,32 +6,27 @@ students = {
 }
 
 def calculate_average(grades):
-    """Calculate the average of a list of grades"""
     return sum(grades) / len(grades)
 
 def get_grade_status(average):
-    """Determine status based on average grade"""
     if average >= 90:
         return "Excellent"
     elif average >= 80:
-        return "Good"
+        return "V.Good"
     elif average >= 70:
-        return "Average"
+        return "Good"
     else:
         return "Needs Improvement"
 
 def display_student_grades():
-    """Display all student grades with averages and status"""
     print("\nStudent Grade Report:")
     print("=" * 40)
     
-    # Using list comprehension to process data
     student_records = [
         (name, grades, calculate_average(grades), get_grade_status(calculate_average(grades)))
         for name, grades in students.items()
     ]
-    
-    # Display formatted output
+
     for name, grades, avg, status in student_records:
         print(f"{name}:")
         print(f"  Grades: {', '.join(map(str, grades))}")
@@ -52,7 +41,6 @@ def add_student():
     students[name] = grades
     print(f"\n{name} added successfully!")
 
-# Main program loop
 while True:
     print("\nStudent Grade Manager")
     print("1. View all student grades")
